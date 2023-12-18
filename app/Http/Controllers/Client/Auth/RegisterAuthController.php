@@ -35,7 +35,7 @@ class RegisterAuthController extends Controller
     {
         return Validator::make($data, [
             'number' => ['required', 'string', 'max:255', 'unique:clients'],
-            'password' => ['required', 'string', 'min:2'],
+            'password' => ['required', 'string', 'min:8', 'max:15'],
         ]);
     }
 
