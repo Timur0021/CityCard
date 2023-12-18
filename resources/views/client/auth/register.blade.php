@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-		<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+		<title>CityCard</title>
 
 		<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/vendor/images/apple-touch-icon.png') }}"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/vendor/images/favicon-32x32.png') }}"/>
-		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/vendor/images/favicon-16x16.png') }}"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/image/logo/icons8-автомобиль-50.png') }}"/>
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/image/logo/icons8-автомобиль-50.png') }}"/>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
         <!-- Styling and icon -->
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/styles/core.css') }}" />
@@ -46,7 +46,7 @@
 			<div class="container-fluid d-flex justify-content-between align-items-center">
 				<div class="brand-logo">
 					<a href="login.html">
-						<img src="{{ asset('assets/vendor/images/deskapp-logo.svg') }}" alt="" />
+						<h2 style="color: blue;">CityCard</h2>
 					</a>
 				</div>
 				<div class="login-menu">
@@ -60,7 +60,7 @@
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-md-6 col-lg-7">
-						<img src="{{ asset('assets/vendor/images/register-page-img.png') }}" alt="" />
+						<img src="{{ asset('assets/image/pictures/grayom-Z6PH4kSs-V8-unsplash.jpg') }}" alt="" />
 					</div>
 					<div class="col-md-6 col-lg-5">
 						<div class="login-box bg-white box-shadow border-radius-10">
