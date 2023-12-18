@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+
+    public const HOME = '/home';
+    public const CLIENT = '/client/home';
     /**
      * The path to your application's "home" route.
      *
@@ -28,6 +31,9 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/client.php'));
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)
