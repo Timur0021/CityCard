@@ -49,7 +49,7 @@
 				<div class="user-info-dropdown">
 					<div class="dropdown">
 						<a class="dropdown-toggle" style="padding-top: 15px;" href="#" role="button" data-toggle="dropdown">
-							<span class="user-name">{{ Auth::user()->email }}</span>
+							<span class="user-name">{{ Auth::guard('client')->user()->role }}</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 							<a class="dropdown-item" href="profile.html">
@@ -107,7 +107,7 @@
 				</div>
 			</div>
 		</div>
-        @include('admin.include.sidebar')
+        @include('client.includes.sidebar')
 		<div class="mobile-menu-overlay"></div>
 
 		<div class="main-container">
