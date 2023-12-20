@@ -12,7 +12,7 @@ var options = {
 		height: 100,
 		width: 70,
 		type: 'radialBar',
-	},	
+	},
 	plotOptions: {
 		radialBar: {
 			hollow: {
@@ -82,7 +82,7 @@ var options2 = {
 		height: 100,
 		width: 70,
 		type: 'radialBar',
-	},	
+	},
 	plotOptions: {
 		radialBar: {
 			hollow: {
@@ -152,7 +152,7 @@ var options3 = {
 		height: 100,
 		width: 70,
 		type: 'radialBar',
-	},	
+	},
 	plotOptions: {
 		radialBar: {
 			hollow: {
@@ -222,7 +222,7 @@ var options4 = {
 		height: 100,
 		width: 70,
 		type: 'radialBar',
-	},	
+	},
 	plotOptions: {
 		radialBar: {
 			hollow: {
@@ -421,18 +421,6 @@ var options6 = {
 	labels: ['Achieve Goals'],
 };
 
-var chart = new ApexCharts(document.querySelector("#chart"), options);
-chart.render();
-
-var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
-chart2.render();
-
-var chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
-chart3.render();
-
-var chart4 = new ApexCharts(document.querySelector("#chart4"), options4);
-chart4.render();
-
 var chart5 = new ApexCharts(document.querySelector("#chart5"), options5);
 chart5.render();
 
@@ -460,7 +448,7 @@ $('document').ready(function(){
 			searchPlaceholder: "Search",
 			paginate: {
 				next: '<i class="ion-chevron-right"></i>',
-				previous: '<i class="ion-chevron-left"></i>'  
+				previous: '<i class="ion-chevron-left"></i>'
 			}
 		},
 	});
