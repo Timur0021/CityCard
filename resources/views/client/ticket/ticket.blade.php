@@ -4,7 +4,7 @@
 		<!-- Basic Page Info -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-		<title>CityCard</title>
+		<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/image/logo/icons8-автомобиль-50.png') }}"/>
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/image/logo/icons8-автомобиль-50.png') }}"/>
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/image/logo/icons8-автомобиль-50.png') }}"/>
@@ -49,7 +49,7 @@
 				<div class="user-info-dropdown">
 					<div class="dropdown">
 						<a class="dropdown-toggle" style="padding-top: 15px;" href="#" role="button" data-toggle="dropdown">
-							<span class="user-name">{{ Auth::user()->email }}</span>
+							<span class="user-name">{{ Auth::guard('client')->user()->role }}</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 							<a class="dropdown-item" href="profile.html">
@@ -107,36 +107,43 @@
 				</div>
 			</div>
 		</div>
-        @include('admin.include.sidebar')
+        @include('client.includes.sidebar')
 		<div class="mobile-menu-overlay"></div>
 
 		<div class="main-container">
-            <h3 style="text-align: center; padding-top: 3rem;padding-bottom: 1rem;">City</h3>
-            <p style="text-align: center;;padding-bottom: 5rem;">Here is a list of cities for trips</p>
+            <h3 style="text-align: center; padding-top: 3rem;padding-bottom: 1rem;">Add Ticket</h3>
+            <p style="text-align: center;;padding-bottom: 5rem;">Here is a list of your tickets for trip</p>
 
-            <a href="{{ route('home.city.city.cteate') }}">
+            <a href="{{ route('client.ticket.ticket.cteate') }}">
                 <button class="btn btn-outline-success" type="submit">
-                    Add city
+                    Add Ticket
                 </button>
             </a>
             <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Created</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Transport</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Type Ticket</th>
+                    <th scope="col">Price Ticket</th>
+                    <th scope="col">Buy</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($cities as $city)
+                    @foreach ($ticket as $tickets)
                         <tr>
-                            <th scope="row">{{ $city->id }}</th>
-                            <th scope="row">{{ $city->title }}</th>
-                            <th scope="row">{{ $city->desctiption }}</th>
-                            <th scope="row">{{ $city->created_at }}</th>
-                            <th scope="row"><a href="{{ route('home.city.city.show', $city->id) }}"><button class="btn btn-outline-primary" type="submit">Редагувати</button></a></th>
+                            <th scope="row">{{ $tickets->id }}</th>
+                            <th scope="row">{{ $tickets->transport->title }}</th>
+                            <th scope="row">{{ $tickets->city->title }}</th>
+                            <th scope="row">{{ $tickets->type->ticket_type }}</th>
+                            <form action="{{ route('client.ticket.ticket.post') }}" method="POST">
+                                @csrf
+                                <th scope="row"><input name="amount" style="box-sizing: border-box; border-radius:10px;text-align:center;" value="{{$tickets->type->ticket_price }}">$</th>
+                                <th scope="row">
+                                    <button class="btn btn-outline-primary" type="submit">Buy</button>
+                                </th>
+                            </form>
                         </tr>
                     @endforeach
                 </tbody>

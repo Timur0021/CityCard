@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('type_tikets', function (Blueprint $table) {
             $table->id();
             $table->string('ticket_type');
-            $table->string('ticket_price');
+            $table->decimal('ticket_price')->unsigned();
             $table->timestamps();
         });
     }

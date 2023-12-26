@@ -2,8 +2,13 @@
 
 use App\Http\Controllers\Client\Auth\LoginAuthController;
 use App\Http\Controllers\Client\Auth\RegisterAuthController;
+use App\Http\Controllers\Client\Bill\BillController;
+use App\Http\Controllers\Client\CreditCard\AddMoney\AddMoneyController;
 use App\Http\Controllers\Client\CreditCard\CreditCardController;
+use App\Http\Controllers\Client\HistoryPlus\HistoryPlusMoneyController;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\Ticket\Order\OrderController;
+use App\Http\Controllers\Client\Ticket\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +37,23 @@ Route::prefix('client')->name('client.')->group(function () {
             Route::get('/create', [CreditCardController::class, 'create'])->name('card.cteate');
             Route::post('/', [CreditCardController::class, 'store'])->name('card.store');
             Route::delete('/{card}', [CreditCardController::class, 'destroy'])->name('card.delete');
+            Route::prefix('add-money')->name('money.')->group(function () {
+                Route::get('/', [AddMoneyController::class, 'index'])->name('money');
+                Route::post('/', [AddMoneyController::class, 'store'])->name('money.store');
+            });
+        });
+        Route::prefix('ticket')->name('ticket.')->group(function () {
+            Route::get('/', [TicketController::class, 'index'])->name('ticket');
+            Route::get('/create', [TicketController::class, 'create'])->name('ticket.cteate');
+            Route::post('/', [TicketController::class, 'store'])->name('ticket.store');
+            Route::post('/post', [TicketController::class, 'post'])->name('ticket.post');
+        });
+        Route::prefix('history-plus')->name('plus.')->group(function () {
+            Route::get('/', [HistoryPlusMoneyController::class, 'index'])->name('plus');
+        });
+        Route::prefix('bill')->name('bill.')->group(function () {
+            Route::get('/', [BillController::class, 'index'])->name('bill');
+            Route::get('/{bill}', [BillController::class, 'show'])->name('bill.show');
         });
     });
 

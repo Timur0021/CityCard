@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddMoney;
+use App\Models\CreditCard;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class HomeController extends Controller
 {
@@ -14,6 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('client.home');
+        $credit = CreditCard::all();
+        return view('client.home', compact('credit'));
     }
 }

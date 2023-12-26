@@ -49,7 +49,7 @@
 				<div class="user-info-dropdown">
 					<div class="dropdown">
 						<a class="dropdown-toggle" style="padding-top: 15px;" href="#" role="button" data-toggle="dropdown">
-							<span class="user-name">{{ Auth::user()->email }}</span>
+							<span class="user-name">{{ Auth::guard('client')->user()->role }}</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 							<a class="dropdown-item" href="profile.html">
@@ -107,52 +107,56 @@
 				</div>
 			</div>
 		</div>
-        @include('admin.include.sidebar')
+        @include('client.includes.sidebar')
 		<div class="mobile-menu-overlay"></div>
 
 		<div class="main-container">
-            <h3 style="text-align: center; padding-top: 3rem;padding-bottom: 1rem;">City</h3>
-            <p style="text-align: center;;padding-bottom: 5rem;">Here is a list of cities for trips</p>
+            <h3 style="text-align: center; padding-top: 3rem;padding-bottom: 3rem;">Add Money to your card</h3>
 
-            <a href="{{ route('home.city.city.cteate') }}">
-                <button class="btn btn-outline-success" type="submit">
-                    Add city
-                </button>
-            </a>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Created</th>
-                    <th scope="col">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach ($cities as $city)
-                        <tr>
-                            <th scope="row">{{ $city->id }}</th>
-                            <th scope="row">{{ $city->title }}</th>
-                            <th scope="row">{{ $city->desctiption }}</th>
-                            <th scope="row">{{ $city->created_at }}</th>
-                            <th scope="row"><a href="{{ route('home.city.city.show', $city->id) }}"><button class="btn btn-outline-primary" type="submit">Редагувати</button></a></th>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
+            <div class="card-header">
+                <h3 class="card-title">ADD Money</h3>
+            </div>
+            <form action="{{ route('client.card.money.money.store') }}" method="POST">
+                @csrf
+                <div class="wb-3 col-5" style="padding-bottom: 15px;">
+                    <label>Card_id</label>
+                    <select name="card_number_id" class="form-control">
+                        @foreach ($cards as $card)
+                            <option value="{{ $card->id }}">{{ $card->card_number }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Amount</label>
+                    <input type="text" name="amount" class="form-control" id="inputEmail4" value="{{ old('amount') }}">
+                </div>
+                @error('amount')
+                    <div class="d-block text-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Description</label>
+                    <input type="text" name="description" class="form-control" id="inputPassword4" value="{{ old('description') }}">
+                </div>
+                @error('description')
+                    <div class="d-block text-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </form>
 		</div>
 		<!-- js -->
 		<script src="{{ asset('assets/vendor/scripts/core.js') }}"></script>
 		<script src="{{ asset('assets/vendor/scripts/script.min.js') }}"></script>
 		<script src="{{ asset('assets/vendor/scripts/process.js') }}"></script>
 		<script src="{{ asset('assets/vendor/scripts/layout-settings.js') }}"></script>
-		<script src="{{ asset('plugins/apexcharts/apexcharts.min.js') }}"></script>
 		<script src="{{ asset('plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
 		<script src="{{ asset('plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
 		<script src="{{ asset('plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
 		<script src="{{ asset('plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
-		<script src="{{ asset('assets/vendor/scripts/dashboard.js') }}"></script>
 	</body>
 </html>

@@ -111,18 +111,46 @@
 		<div class="mobile-menu-overlay"></div>
 
 		<div class="main-container">
-			<div class="pd-ltr-20">
-				<div class="row">
-					<div class="col-xl-8 mb-30">
-						<div class="card-box height-100-p pd-20">
-							<h2 class="h4 mb-20">Activity</h2>
-							<div id="chart5"></div>
+            <div class="row pb-10">
+				<div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+					<div class="card-box height-100-p widget-style3">
+						<div class="d-flex flex-wrap">
+							<div class="widget-data">
+								<div class="font-14 text-secondary weight-500">
+									<h4>History Add money</h4>
+                                    <a href="{{ route('client.plus.plus') }}">
+                                        <button class="btn btn-outline-success" type="submit">
+                                            Review history
+                                        </button>
+                                    </a>
+								</div>
+							</div>
+							<div class="widget-icon">
+								<div class="icon" data-color="#00eccf" style="color: rgb(0, 236, 207);">
+									<i class="icon-copy dw dw-calendar1"></i>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-xl-4 mb-30">
-						<div class="card-box height-100-p pd-20">
-							<h2 class="h4 mb-20">Lead Target</h2>
-							<div id="chart6"></div>
+				</div>
+				<div class="col-xl-3 col-lg-3 col-md-6 mb-20">
+					<div class="card-box height-100-p widget-style3">
+						<div class="d-flex flex-wrap">
+							<div class="widget-data">
+                                <h4>Баланс</h4>
+                                <select name="card_number_id" class="form-control">
+                                    @foreach ($credit as $credits)
+                                        <option class="weight-700 font-24 text-dark" value="{{ $credits->id }}">Credit Card ID{{ $credits->id }}: {{ $credits->balance }}$</option>
+                                        <div class="font-14 text-secondary weight-500">Earning</div>
+                                    @endforeach
+                                </select>
+                                    {{-- <div class="weight-700 font-24 text-dark">{{ $credits->balance }}</div> --}}
+							</div>
+							<div class="widget-icon">
+								<div class="icon" data-color="#09cc06" style="color: rgb(9, 204, 6);">
+									<i class="icon-copy fa fa-money" aria-hidden="true"></i>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

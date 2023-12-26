@@ -49,7 +49,7 @@
 				<div class="user-info-dropdown">
 					<div class="dropdown">
 						<a class="dropdown-toggle" style="padding-top: 15px;" href="#" role="button" data-toggle="dropdown">
-							<span class="user-name">{{ Auth::user()->email }}</span>
+							<span class="user-name">{{ Auth::guard('client')->user()->role }}</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 							<a class="dropdown-item" href="profile.html">
@@ -107,52 +107,77 @@
 				</div>
 			</div>
 		</div>
-        @include('admin.include.sidebar')
+        @include('client.includes.sidebar')
 		<div class="mobile-menu-overlay"></div>
 
 		<div class="main-container">
-            <h3 style="text-align: center; padding-top: 3rem;padding-bottom: 1rem;">City</h3>
-            <p style="text-align: center;;padding-bottom: 5rem;">Here is a list of cities for trips</p>
-
-            <a href="{{ route('home.city.city.cteate') }}">
-                <button class="btn btn-outline-success" type="submit">
-                    Add city
-                </button>
-            </a>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Created</th>
-                    <th scope="col">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach ($cities as $city)
-                        <tr>
-                            <th scope="row">{{ $city->id }}</th>
-                            <th scope="row">{{ $city->title }}</th>
-                            <th scope="row">{{ $city->desctiption }}</th>
-                            <th scope="row">{{ $city->created_at }}</th>
-                            <th scope="row"><a href="{{ route('home.city.city.show', $city->id) }}"><button class="btn btn-outline-primary" type="submit">Редагувати</button></a></th>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
+<div class="invoice-wrap">
+            <div class="invoice-box">
+                <div class="invoice-header">
+                    <div class="logo text-center">
+                        <img src="vendors/images/deskapp-logo.png" alt="">
+                    </div>
+                </div>
+                <h4 class="text-center mb-30 weight-600">TICKET</h4>
+                <div class="row pb-30">
+                    <div class="col-md-6">
+                        <h5 class="mb-15">Client Name: {{ Auth::guard('client')->user()->role }}</h5>
+                        <p class="font-14 mb-5">
+                            Date Issued: <strong class="weight-600">{{ $bill->created_at }}</strong>
+                        </p>
+                        <p class="font-14 mb-5">
+                            Invoice No: <strong class="weight-600">#{{ $bill->id }}</strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="invoice-desc pb-30">
+                    <div class="invoice-desc-head clearfix">
+                        <div class="invoice-sub">Description</div>
+                        <div class="invoice-hours">Hours</div>
+                        <div class="invoice-subtotal">Subtotal</div>
+                    </div>
+                    <div class="invoice-desc-body">
+                        <ul>
+                            <li class="clearfix">
+                                <div class="invoice-sub">{{ $bill->card_number_id }}</div>
+                                <div class="invoice-hours">{{ $bill->created_at }}</div>
+                                <div class="invoice-subtotal">
+                                    <span class="weight-600" style="color: red;">{{ $bill->amount }}$</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="invoice-desc-footer">
+                        <div class="invoice-desc-head clearfix">
+                            <div class="invoice-rate">Due By</div>
+                            <div class="invoice-subtotal">Total Due</div>
+                        </div>
+                        <div class="invoice-desc-body">
+                            <ul>
+                                <li class="clearfix">
+                                    <div class="invoice-rate font-20 weight-600">
+                                        {{ $bill->updated_at }}
+                                    </div>
+                                    <div class="invoice-subtotal">
+                                        <span class="weight-600 font-24 text-danger">{{ $bill->amount }}$</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="text-center pb-20">Thank You!!</h4>
+            </div>
+        </div>
 		</div>
 		<!-- js -->
 		<script src="{{ asset('assets/vendor/scripts/core.js') }}"></script>
 		<script src="{{ asset('assets/vendor/scripts/script.min.js') }}"></script>
 		<script src="{{ asset('assets/vendor/scripts/process.js') }}"></script>
 		<script src="{{ asset('assets/vendor/scripts/layout-settings.js') }}"></script>
-		<script src="{{ asset('plugins/apexcharts/apexcharts.min.js') }}"></script>
 		<script src="{{ asset('plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
 		<script src="{{ asset('plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
 		<script src="{{ asset('plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
 		<script src="{{ asset('plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
-		<script src="{{ asset('assets/vendor/scripts/dashboard.js') }}"></script>
 	</body>
 </html>

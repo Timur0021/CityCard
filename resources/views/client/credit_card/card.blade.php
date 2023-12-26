@@ -122,19 +122,35 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Card Number</th>
-                    <th scope="col">Blance</th>
+                    <th scope="col">CVC</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Created</th>
+                    <th scope="col">Add Money</th>
                     <th scope="col">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
+                    @foreach ($card as $cards)
                         <tr>
-                            <th scope="row"></th>
-                            <th scope="row"></th>
-                            <th scope="row"></th>
-                            <th scope="row"><a href="#"><button class="btn btn-outline-primary" type="submit">Редагувати</button></a></th>
+                            <th scope="row">{{ $cards->id }}</th>
+                            <th scope="row">{{ $cards->card_number }}</th>
+                            <th scope="row">{{ $cards->cvc }}</th>
+                            <th scope="row">{{ $cards->date }}</th>
+                            <th scope="row">{{ $cards->created_at }}</th>
+                            <th scope="row"><a href="{{ route('client.card.money.money') }}"><button class="btn btn-outline-primary" type="submit">Add Money</button></a></th>
+                            <th scope="row">
+                                <form action="{{ route('client.card.card.delete', $cards->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-outline-danger" type="submit">
+                                        Delete
+                                    </button>
+                                </form>
+                            </th>
                         </tr>
+                    @endforeach
                 </tbody>
             </table>
 

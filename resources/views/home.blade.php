@@ -107,7 +107,7 @@
 				</div>
 			</div>
 		</div>
-        @include('client.includes.sidebar')
+        @include('admin.include.sidebar')
 		<div class="mobile-menu-overlay"></div>
 
 		<div class="main-container">

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Client;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreditCardRequest extends FormRequest
+class TiketRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,9 @@ class CreditCardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'card_number' => 'required|string',
-            'date' => 'required|string',
-            'cvc' => 'required|string',
-            'balance' => 'required',
+            'transport_id' => 'required',
+            'city_id' => 'required',
+            'type_id' => 'required',
         ];
     }
 }

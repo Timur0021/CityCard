@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="dropdown-toggle no-arrow">
+                    <a href="{{ route('client.ticket.ticket') }}" class="dropdown-toggle no-arrow">
                         <span class="micon fa fa-ticket" style="color: cornflowerblue;"></span>
                         <span class="mtext">
                             Ticket
@@ -27,18 +27,15 @@
                     </a>
                 </li>
                 <li>
-                    <div class="dropdown-divider"></div>
-                </li>
-                <li>
-                    <div class="sidebar-small-cap">Extra</div>
-                </li>
-                <li>
-                    <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-layout-text-window-reverse"></span>
+                    <a href="{{ route('client.bill.bill') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon fa fa-list" style="color: cornflowerblue;"></span>
                         <span class="mtext">
-                            Landing Page
+                            Bill
                         </span>
                     </a>
+                </li>
+                <li>
+                    <div class="dropdown-divider"></div>
                 </li>
             </ul>
         </div>

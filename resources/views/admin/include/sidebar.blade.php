@@ -37,17 +37,6 @@
                 <li>
                     <div class="dropdown-divider"></div>
                 </li>
-                <li>
-                    <div class="sidebar-small-cap">Extra</div>
-                </li>
-                <li>
-                    <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-layout-text-window-reverse"></span>
-                        <span class="mtext">
-                            Landing Page
-                        </span>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>
