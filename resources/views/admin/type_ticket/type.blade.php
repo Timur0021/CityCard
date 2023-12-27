@@ -141,15 +141,6 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="form-group row">
-				<label class="col-sm-12 col-md-2 col-form-label">Фільтр по цінам</label>
-				<div class="col-sm-12 col-md-6">
-					<input class="form-control" value="50" type="range">
-                    <button class="btn btn-outline-success" type="submit">
-                        Filter
-                    </button>
-				</div>
-            </div>
 		</div>
 		<!-- js -->
 		<script src="{{ asset('assets/vendor/scripts/core.js') }}"></script>

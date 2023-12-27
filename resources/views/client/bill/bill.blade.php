@@ -127,7 +127,7 @@
                     @foreach ($orderHistory as $order)
                         <tr>
                             <th scope="row">{{ $order->id }}</th>
-                            <th scope="row"><span style="color:red">+ {{ $order->amount }}$</span></th>
+                            <th scope="row"><span style="color:red">- {{ $order->amount }}$</span></th>
                             <th scope="row"><a href="{{ route('client.bill.bill.show', $order->id) }}" style="color:black; text-decoration:underline;">Your Ticket</a></th>
                             <th scope="row">{{ $order->created_at }}</th>
                     @endforeach

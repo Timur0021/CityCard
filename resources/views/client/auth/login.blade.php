@@ -70,7 +70,7 @@
                                     <input type="submit" value="Sumbit">
                                 </div>
                                 <div class="text sign-up-text">Don't have an account?
-                                    <a href="{{ route('client.register') }}">Sigup now</a>
+                                    <a href="{{ route('client.register') }}">Register now</a>
                                 </div>
                             </div>
                         </form>

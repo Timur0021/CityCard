@@ -39,9 +39,9 @@ class CreditCardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CreditCard $card)
+    public function destroy(CreditCard $cards)
     {
-        $card->delete();
+        $cards->delete();
         return redirect()->route('client.card.card');
     }
 }

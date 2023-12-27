@@ -36,7 +36,7 @@ Route::prefix('client')->name('client.')->group(function () {
             Route::get('/', [CreditCardController::class, 'index'])->name('card');
             Route::get('/create', [CreditCardController::class, 'create'])->name('card.cteate');
             Route::post('/', [CreditCardController::class, 'store'])->name('card.store');
-            Route::delete('/{card}', [CreditCardController::class, 'destroy'])->name('card.delete');
+            Route::delete('/{cards}', [CreditCardController::class, 'destroy'])->name('card.delete');
             Route::prefix('add-money')->name('money.')->group(function () {
                 Route::get('/', [AddMoneyController::class, 'index'])->name('money');
                 Route::post('/', [AddMoneyController::class, 'store'])->name('money.store');
