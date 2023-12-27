@@ -29,7 +29,7 @@
                 <a href="" class="menu__link">Blog</a>
                 </li>
                 <li class="menu__item">
-                <button class="menu__button"><a href="{{ url('/client/login') }}" class="menu__link">Log in</a></button>
+                    <button class="menu__button"><a href="{{ url('/client/login') }}" class="menu__link">Log in</a></button>
                 </li>
                 @if (Route::has('login'))
                     <li class="menu__item">
